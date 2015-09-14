@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+var debug = require('debug')('myapp');
+var app = require('../app');
+var port = global.minecraftStatus.port;
+
+// Setup a default port if one has not been passed through
+if(process.env.PORT) port = process.env.PORT;
+
+http.listen(port, function() {
+  app.getStatus();
+  if (global.minecraftStatus.latestLogFileURL !== "") {
+    app.getLogStatus();
+  }
+});
