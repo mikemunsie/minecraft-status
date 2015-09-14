@@ -44,9 +44,7 @@ function getStatus(callback) {
       return callback.call(this, results);
     }
     lastFileReadContent = contents;
-    //if (iterations > 1) {
-      results.playersDead = determineWhoDied(contents);
-    //}
+    results.playersDead = determineWhoDied(contents);
     callback.call(this, results);
   });
 }
